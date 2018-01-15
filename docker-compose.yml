@@ -1,0 +1,19 @@
+version: "2"
+services:
+  php:
+    build: ./docker/php
+    volumes:
+      - /path/to/codes:/usr/share/nginx/html
+  web:
+    build: ./docker/nginx
+    volumes:
+      - /path/to/codes:/usr/share/nginx/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/sites-available:/etc/nginx/sites-available # nginx sites ( in case you recreate the container )
+      - ./docker/nginx/sites-enabled:/etc/nginx/sites-enabled # nginx sites ( in case you recreate the container )
+      - ./docker/nginx/ssl:/etc/nginx/ssl
+    ports:
+      - "9090:80"
+    links:
+      - "php"
