@@ -15,8 +15,8 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y unixodbc-dev msodbcsql &&
 RUN apt-get update && apt-get install -y \
         libxml2 libxml2-dev
 
-RUN wget http://ftp.br.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u7_amd64.deb
-RUN dpkg -i libssl1.0.0_1.0.1t-1+deb8u7_amd64.deb
+RUN wget http://ftp.br.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb
+RUN dpkg -i libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb
 
 # Install php extensions
 RUN apt-get install -y \
